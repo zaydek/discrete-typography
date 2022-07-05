@@ -259,7 +259,7 @@ const App: Solid.Component = () => {
 										outline: unset; // Reset
 										box-shadow: 0 1px 0 0 hsl(240deg 100% 50%);
 									}
-								`)}
+								`, { key: "reset" })}
 							/>
 							<LabelGap />
 						</layout.Row>
@@ -277,7 +277,7 @@ const App: Solid.Component = () => {
 										outline: unset; // Reset
 										box-shadow: 0 1px 0 0 hsl(240deg 100% 50%);
 									}
-								`)}
+								`, { key: "reset" })}
 							/>
 						</layout.Row>
 						<layout.Row center gap={16}>
@@ -294,7 +294,7 @@ const App: Solid.Component = () => {
 										outline: unset; // Reset
 										box-shadow: 0 1px 0 0 hsl(240deg 100% 50%);
 									}
-								`)}
+								`, { key: "reset" })}
 							/>
 						</layout.Row>
 						<layout.Row center gap={16}>
@@ -310,7 +310,7 @@ const App: Solid.Component = () => {
 										outline: unset; // Reset
 										box-shadow: 0 1px 0 0 hsl(240deg 100% 50%);
 									}
-								`)}
+								`, { key: "reset" })}
 							/>
 							<LabelGap />
 						</layout.Row>
@@ -328,7 +328,7 @@ const App: Solid.Component = () => {
 										outline: unset; // Reset
 										box-shadow: 0 1px 0 0 hsl(240deg 100% 50%);
 									}
-								`)}
+								`, { key: "reset" })}
 							/>
 						</layout.Row>
 						<layout.Row center gap={16}>

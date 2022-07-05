@@ -7,9 +7,22 @@ import * as u from "../utils"
 
 ////////////////////////////////////////////////////////////////////////////////
 
-let _seed = 0
-function createId() {
-	return u.seedHash({ seed: _seed++, base: u.BASE_52, padStart: 2 })
+const seedCache: Record<string, number> = {}
+
+function createId(key: null | string) {
+	let seed = seedCache["" + key]
+	if (seed === undefined) {
+		seed = 0
+		seedCache["" + key] = seed
+	}
+	const hash = u.seedHash({
+		seed: seedCache["" + key]++,
+		base: u.BASE_52,
+		padStart: 2,
+	})
+	return key === null
+		? `css-${hash}`
+		: `css-${key}-${hash}`
 }
 
 function _createStylesheet(attrs: Record<string, string>) {
@@ -30,7 +43,6 @@ function _createStylesheet(attrs: Record<string, string>) {
 	}
 }
 
-// Runs Stylis as global scope or scoped to cssId
 function runStylis({ cssId, raw }: { cssId: null | string, raw: string }) {
 	if (cssId === null) {
 		return stylis.serialize(
@@ -51,7 +63,7 @@ function runStylis({ cssId, raw }: { cssId: null | string, raw: string }) {
 	}
 }
 
-type CSSCache = Record<string, {
+type SpecCache = Record<string, {
 	cssId: string
 	raw:   string
 	css:   string
@@ -59,15 +71,15 @@ type CSSCache = Record<string, {
 
 function createStylesheet(attrs: Record<string, string>) {
 	const sheet = _createStylesheet(attrs)
-	const cache: CSSCache = {}
+	const cache: SpecCache = {}
 
 	return {
-		append(rawOrFn: string | Solid.Accessor<string>) {
+		append(rawOrFn: string | Solid.Accessor<string>, { key }: { key: null | string } = { key: null }) {
 			const raw = u.unwrap(rawOrFn)
 			if (raw in cache) {
 				return cache[raw]
 			} else {
-				const cssId = createId()
+				const cssId = createId(key)
 				const css = runStylis({ cssId, raw })
 				const spec = {
 					cssId, // E.g. ".foo"
@@ -87,12 +99,10 @@ function createStylesheet(attrs: Record<string, string>) {
 
 export const globalStylesheet = createStylesheet({ type: "text/css" })
 
-// Appends CSS to the global stylesheet and returns the generated class name
-export function css(rawOrFn: string | Solid.Accessor<string>) {
-	return globalStylesheet.append(rawOrFn).cssId
+export function css(rawOrFn: string | Solid.Accessor<string>, { key }: { key: null | string } = { key: null }) {
+	return globalStylesheet.append(rawOrFn, { key }).cssId
 }
 
-// Renders CSS to a new stylesheet
 export const Stylesheet: Solid.Component<{ id?: string, class?: string, children: string }> = props => {
 	const entry = document.createElement("style")
 	entry.setAttribute("type", "text/css")

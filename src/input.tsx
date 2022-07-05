@@ -6,7 +6,6 @@ import * as state from "./state"
 
 type InputProps = {
 	class?:     string
-	style?:     string
 	autofocus?: boolean
 }
 

@@ -14,9 +14,9 @@ type StyledComponent = Solid.Component<
 	Solid.JSX.IntrinsicElements[keyof Solid.JSX.IntrinsicElements]
 > & { cssId(): string }
 
-export const styled = (as: As) => {
-	return (rawOrFn: string | Solid.Accessor<string>) => {
-		const { cssId, raw } = globalStylesheet.append(rawOrFn)
+export function styled(as: As) {
+	return (rawOrFn: string | Solid.Accessor<string>, { key }: { key: null | string } = { key: null }) => {
+		const { cssId, raw } = globalStylesheet.append(rawOrFn, { key })
 		const [getCssId, setCssId] = Solid.createSignal(cssId)
 		const [getRaw, setRaw] = Solid.createSignal(raw)
 
@@ -26,7 +26,7 @@ export const styled = (as: As) => {
 
 			Solid.createEffect(
 				Solid.on(u.wrap(rawOrFn), () => {
-					const { cssId, raw } = globalStylesheet.append(rawOrFn)
+					const { cssId, raw } = globalStylesheet.append(rawOrFn, { key })
 					Solid.batch(() => {
 						setCssId(cssId)
 						setRaw(raw)

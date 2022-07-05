@@ -16,7 +16,7 @@ export function cx(...args: any[]) {
 if (import.meta.vitest) {
 	const { expect, it: test } = import.meta.vitest
 	test("cx", () => {
-		expect(cx()).toEqual(null)
+		expect(cx()).toEqual(undefined)
 		expect(cx("foo")).toEqual("foo")
 		expect(cx("foo", "bar")).toEqual("foo bar")
 		expect(cx("foo", "bar", undefined)).toEqual("foo bar")

@@ -25,7 +25,7 @@ export const Grow: Solid.Component<GrowProps> = props => {
 		<SolidWeb.Dynamic
 			component={currProps.as ?? "div"}
 			class={u.cx(
-				css(`flex-grow: 1;`),
+				css(`flex-grow: 1;`, { key: "grow" }),
 				currProps.class,
 			)}
 			{...nextProps}
@@ -76,7 +76,7 @@ export const Row: Solid.Component<RowProps> = props => {
 					${currProps.wrap !== undefined ? `
 						wrap: ${currProps.wrap === true ? "wrap" : "nowrap"};
 					` : ""}
-				`),
+				`, { key: "row" }),
 				currProps.class,
 			)}
 			{...nextProps}
@@ -127,7 +127,7 @@ export const Col: Solid.Component<ColProps> = props => {
 					${currProps.wrap !== undefined ? `
 						wrap: ${currProps.wrap === true ? "wrap" : "nowrap"};
 					` : ""}
-				`),
+				`, { key: "col" }),
 			)}
 			{...nextProps}
 		>
