@@ -223,37 +223,20 @@ const App: Solid.Component = () => {
 			<FixedTR>
 				<Card>
 					<Typography>
-						<h1>
-							What is this?
-						</h1>
-						<p>
-							This is an experimental tool inspired by <a href="https://seek-oss.github.io/capsize" target="_blank">Capsize</a>. Capsize allows you to scale a font’s <code>font-size</code> such that the drawn font is flush with the font’s bounding box.
-						</p>
-						<p>
-							Whereas Capsize uses <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/os2" target="_blank">OS/2</a> metrics which are hard-coded and inflexible, this tool uses a <code>{"<canvas>"}</code> element and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics" target="_blank"><code>TextMetrics</code></a> API to draw and precisely measure <code>x-height</code> and <code>cap-height</code> on a per-character basis.
-						</p>
-						<p>
-							On the <code>{"<canvas>"}</code> element, the ascender gap is drawn <Red>red</Red>, the ascender is drawn <Green>green</Green>, the descender is drawn <Blue>blue</Blue>, and the descender gap is drawn <Purple>purple</Purple>.
-						</p>
+						<h1>What is this?</h1>
+						<p>This is an experimental tool inspired by <a href="https://seek-oss.github.io/capsize" target="_blank">Capsize</a>. Capsize allows you to scale a font’s <code>font-size</code> such that the drawn font is flush with the font’s bounding box.</p>
+						<p>Whereas Capsize uses <a href="https://docs.microsoft.com/en-us/typography/opentype/spec/os2" target="_blank">OS/2</a> metrics which are hard-coded and inflexible, this tool uses a <code>{"<canvas>"}</code> element and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics" target="_blank"><code>TextMetrics</code></a> API to draw and precisely measure <code>x-height</code> and <code>cap-height</code> on a per-character basis.</p>
+						<p>On the <code>{"<canvas>"}</code> element, the ascender gap is drawn <Red>red</Red>, the ascender is drawn <Green>green</Green>, the descender is drawn <Blue>blue</Blue>, and the descender gap is drawn <Purple>purple</Purple>.</p>
 						<ul class={css(`margin-left: 2ch;`)}>
-							<li>
-								The <Red>ascender gap</Red> measures from the top of the bounding box to the top of a drawn character
-							</li>
-							<li>
-								The <Green>ascender</Green> measures from the top of a drawn character to the baseline
-							</li>
-							<li>
-								The <Blue>descender</Blue> measures from the baseline to the bottom of a drawn character
-							</li>
-							<li>
-								The <Purple>descender gap</Purple> measures from the bottom of a drawn character to the bottom of the bounding box
-							</li>
+							<li>The <Red>ascender gap</Red> measures from the top of the bounding box to the top of a drawn character</li>
+							<li>The <Green>ascender</Green> measures from the top of a drawn character to the baseline</li>
+							<li>The <Blue>descender</Blue> measures from the baseline to the bottom of a drawn character</li>
+							<li>The <Purple>descender gap</Purple> measures from the bottom of a drawn character to the bottom of the bounding box</li>
 						</ul>
+						<p>Therefore the <Green>ascender</Green>-height of an <code>'x'</code> is the <code>x-height</code> and the <Green>ascender</Green>-height of an <code>'X'</code> is the <code>cap-height</code>.</p>
 						<p>
-							Therefore the <Green>ascender</Green>-height of an <code>'x'</code> is the <code>x-height</code> and the <Green>ascender</Green>-height of an <code>'X'</code> is the <code>cap-height</code>.
-						</p>
-						<p>
-							By <a href="https://twitter.com/username_ZAYDEK" target="_blank">@username_ZAYDEK</a>
+							By <a href="https://twitter.com/username_ZAYDEK" target="_blank">@username_ZAYDEK</a><br />
+							Repo <a href="https://github.com/zaydek/discrete-typography" target="_blank">github.com/zaydek/discrete-typography</a>
 						</p>
 					</Typography>
 				</Card>
