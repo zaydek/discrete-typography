@@ -123,7 +123,7 @@ const Card = styled.div(`
 	box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 15%);
 `)
 
-const OverlayText = styled.div(() => `
+const HeroText = styled.div(() => `
 	&::before {
 		content: "";
 		margin-bottom: ${u.round(state.beforeMarginBottomEm())}em;
@@ -140,7 +140,7 @@ const OverlayText = styled.div(() => `
 	// DEBUG
 	color: hsl(0deg 0% 0% / 25%);
 	outline: 1px solid red;
-`)
+`, { key: "hero" })
 
 const Code = styled.code(`
 	tab-size: 2;
@@ -386,9 +386,9 @@ const App: Solid.Component = () => {
 				<div class={css(`position: relative;`)}>
 					<Canvas />
 					<div class={css(`position: absolute; top: 0; left: 0;`)}>
-						<OverlayText class={css(`width: ${CANVAS_W}px;`)}>
+						<HeroText class={css(`width: ${CANVAS_W}px;`)}>
 							{state.input()}
-						</OverlayText>
+						</HeroText>
 					</div>
 				</div>
 			</layout.Row>
