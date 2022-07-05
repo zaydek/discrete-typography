@@ -1,0 +1,12 @@
+*,
+*::before,
+*::after {
+	margin:  unset;
+	padding: unset;
+	border:  unset;
+
+	box-sizing: border-box;
+
+	vertical-align: baseline;
+	font: inherit;
+}
