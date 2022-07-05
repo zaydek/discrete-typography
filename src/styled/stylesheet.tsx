@@ -21,8 +21,8 @@ function createId(key: null | string) {
 		padStart: 2,
 	})
 	return key === null
-		? `css-${hash}`
-		: `css-${key}-${hash}`
+		? hash
+		: `${key}-${hash}`
 }
 
 function _createStylesheet(attrs: Record<string, string>) {
