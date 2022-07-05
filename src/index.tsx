@@ -41,7 +41,7 @@ const Canvas: Solid.Component<{ class?: string }> = props => {
 
 			ctx.clearRect(0, 0, CANVAS_W, CANVAS_H)
 			ctx.beginPath()
-			ctx.font = `${state.fontWeight()} ${state.fontSize()}px ${state.fontFamily().includes(" ") === true ? `'${state.fontFamily()}'` : state.fontFamily()}`
+			ctx.font = `${state.fontWeight()} ${state.fontSize()}px ${state.fontFamily().includes(" ") ? `'${state.fontFamily()}'` : state.fontFamily()}`
 
 			// Don't bother with x-axis offsets because of wrapping text
 			const metrics = ctx.measureText(state.input())
@@ -135,7 +135,7 @@ const HeroText = styled.div(() => `
 		display: table;
 	}
 	font: ${state.fontWeight()} ${u.round(state.scaledFontSize())}px /
-		${u.round(state.fontSize() * state.lineHeight())}px ${state.fontFamily().includes(" ") === true ? `'${state.fontFamily()}'` : state.fontFamily()};
+		${u.round(state.fontSize() * state.lineHeight())}px ${state.fontFamily().includes(" ") ? `'${state.fontFamily()}'` : state.fontFamily()};
 
 	// DEBUG
 	color: hsl(0deg 0% 0% / 25%);
@@ -370,7 +370,7 @@ const App: Solid.Component = () => {
 													display: table;
 												}
 												font: ${state.fontWeight()} ${u.round(state.scaledFontSize())}px /
-													${u.round(state.fontSize() * state.lineHeight())}px ${state.fontFamily().includes(" ") === true ? `'${state.fontFamily()}'` : state.fontFamily()};
+													${u.round(state.fontSize() * state.lineHeight())}px ${state.fontFamily().includes(" ") ? `'${state.fontFamily()}'` : state.fontFamily()};
 											}
 										`)}
 									</Solid.Show>
