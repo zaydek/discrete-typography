@@ -236,7 +236,8 @@ const App: Solid.Component = () => {
 						<p>Therefore the <Green>ascender</Green>-height of an <code>'x'</code> is the <code>x-height</code> and the <Green>ascender</Green>-height of an <code>'X'</code> is the <code>cap-height</code>.</p>
 						<p>
 							By <a href="https://twitter.com/username_ZAYDEK" target="_blank">@username_ZAYDEK</a><br />
-							Repo <a href="https://github.com/zaydek/discrete-typography" target="_blank">github.com/zaydek/discrete-typography</a>
+							Repo <a href="https://github.com/zaydek/discrete-typography" target="_blank">github.com/zaydek/discrete-typography</a><br />
+							License <a href="https://github.com/zaydek/discrete-typography/blob/main/LICENSE" target="_blank">MIT Open Source</a>
 						</p>
 					</Typography>
 				</Card>
